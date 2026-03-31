@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>YellowGo | Landing Page</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizzing: border-box;
+            }
+            body {
+                background-image: url("landingbg.png");
+                background-size: cover;
+                background-position: center top;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+
+            .container {
+                text-align: center;
+                padding: 40px 25px;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(0.1px);
+                border-radius: 16px;
+                box-shadow:
+                    0 4px 15px rgba(0, 0, 0, 0.2),
+                    0 8px 30px rgba(0, 0, 0, 0.1);
+                max-width: 420px;
+            }
+
+            h1 {
+                font-family: Georgia;
+                font-weight: bold;
+                color: #676767;
+                font-size: 2.5rem;
+                margin-bottom: 12px;
+            }
+            h1 hr {
+                height: 1.4px;
+                background: orange;
+            }
+
+            p {
+                font-family: Georgia;
+                font-weight: bolder;
+                font-size: 1.2rem;
+                margin-bottom: 30px;
+                color: #676767;
+            }
+
+            .btn {
+                display: block;
+                width: 80%;
+                margin: 12px auto;
+                padding: 14px 0;
+                font-size: 1rem;
+                font-weight: bold;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                text-decoration: none;
+                transition: all 0.2s ease-in-out;
+            }
+
+            .btn:hover {
+                transform: scale(1.06);
+                background: #a37b47;
+            }
+
+            /* Driver Buttons - Warm tones */
+            .driver-signup {
+                background-color: #d97706;
+                color: white;
+            }
+
+            .driver-login {
+                background-color: #3b82f6;
+                color: #fff;
+            }
+
+            .driver-login:hover {
+                background: #0489e4;
+            }
+
+            /* Passenger Buttons - Cool tones */
+            .passenger-signup {
+                background-color: #d97706; /* medium blue */
+                color: #fff;
+            }
+
+            @media (max-width: 500px) {
+                h1 {
+                    font-size: 2rem;
+                }
+                .btn {
+                    width: 60%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>
+                YellowGo
+                <hr />
+            </h1>
+            <p>Welcome! Choose your path to start your ride.</p>
+
+            <a href="driversignup.html" class="btn driver-signup">Sign Up</a>
+            <a href="driver-login.html" class="btn driver-login">Login</a>
+        </div>
+    </body>
+</html>

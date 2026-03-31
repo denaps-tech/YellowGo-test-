@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Reset Password | YellowGo</title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial, sans-serif;
+            }
+
+            body {
+                background: url("bg2.png") no-repeat center center/cover;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .container {
+                width: 95%;
+                max-width: 400px;
+                padding: 30px;
+                border-radius: 20px;
+                background: rgba(255, 255, 255, 0.15);
+                backdrop-filter: blur(12px);
+                text-align: center;
+                color: #fff;
+            }
+
+            h2 {
+                font-family: Georgia;
+                color: #000000;
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-weight: bold;
+                font-family: Georgia;
+                color: #000000;
+                margin-bottom: 20px;
+                font-size: 0.9rem;
+            }
+
+            input {
+                text-align: center;
+                font-family: Georgia;
+                text-decoration: none;
+                font-weight: bolder;
+                width: 100%;
+                padding: 12px;
+                border-radius: 10px;
+                border: none;
+                margin-bottom: 15px;
+                outline: none;
+            }
+
+            button {
+                font-family: Georgia;
+                font-weight: bold;
+                width: 100%;
+                padding: 12px;
+                border: none;
+                border-radius: 12px;
+                background: #ed6500;
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background: #0948ff;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h2>Reset Password</h2>
+
+            <input
+                type="text"
+                id="input-identifier"
+                placeholder="Full Name or Phone Number"
+                required
+            />
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter Email"
+                required
+            />
+            <button onclick="sendCode()">Send Code</button>
+        </div>
+
+        <script>
+            async function sendCode() {
+                const identifier = document
+                    .getElementById("input-identifier")
+                    .value.trim();
+                const email = document.getElementById("email").value.trim();
+
+                if (!identifier || !email) {
+                    alert("Please fill all fields");
+                    return;
+                }
+
+                try {
+                    const res = await fetch("http://localhost:3000/send-code", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({ identifier, email })
+                    });
+
+                    const data = await res.json();
+
+                    alert(data.message);
+
+                    if (data.success) {
+                        // Save email and identifier for next step
+                        localStorage.setItem("email", email);
+                        localStorage.setItem("identifier", identifier);
+
+                        // Redirect to the reset OTP page
+                        window.location.href = "enter-code.html";
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert("Server error. Try again later.");
+                }
+            }
+        </script>
+    </body>
+</html>

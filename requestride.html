@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Request Ride | YellowGo</title>
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+            }
+            body {
+                background: url("bg1.png") no-repeat center center fixed;
+                background-size: cover;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #333;
+            }
+            .ride-container {
+                width: 95%;
+                max-width: 400px;
+                background: rgba(255, 255, 255, 0.2);
+                backdrop-filter: blur(10px);
+                border-radius: 20px;
+                padding: 20px;
+                text-align: center;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            }
+            h2 {
+                font-family: Georgia;
+                font-weight: bold;
+                margin-bottom: 15px;
+                color: white;
+                text-shadow: 2px 3px 3px black;
+            }
+            select {
+                font-family: Georgia;
+                font-weight: bold;
+                width: 100%;
+                padding: 12px;
+                margin: 10px 0;
+                border-radius: 10px;
+                border: none;
+                outline: none;
+            }
+            .btn {
+                display: inline-block;
+                padding: 12px 25px;
+                border: none;
+                border-radius: 12px;
+                background: #e15e00;
+                font-family: Georgia;
+                font-weight: bold;
+                color: White;
+                cursor: pointer;
+                margin-top: 10px;
+                transition: 0.2s;
+            }
+            .btn:hover {
+                background: #0061f0;
+            }
+            .info-box {
+                background: rgba(0, 0, 0, 0.3);
+                padding: 15px;
+                border-radius: 15px;
+                margin-top: 15px;
+                color: #fff;
+                display: none;
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="ride-container">
+            <h2>Request Ride</h2>
+
+            <!-- Step 1: Select Destination -->
+            <div id="step1">
+                <select id="destination">
+                    <option value="">Select your destination</option>
+                    <option value="kamina_barracks-airport" data-price="50">
+                        Kamina to Airport
+                    </option>
+                    <option value="taxi_round-kamina" data-price="5">
+                        Taxi Round to Kamina
+                    </option>
+                    <option value="taxi_round-uds_dungu" data-price="3">
+                        Taxi round to UDS Dungu
+                    </option>
+                    <option value="changli-dabokpaa" data-price="40">
+                        Changli to Dabokpaa
+                    </option>
+                    <option value="gbaynani-taxi_round" data-price="10">
+                        Gbaynani to Taxi round
+                    </option>
+                    <option value="changli-dabokpaa" data-price="40">
+                        Changli to Dabokpaa
+                    </option>
+                </select>
+                <button class="btn" id="calculateBtn">Check Price</button>
+            </div>
+
+            <!-- Step 2: Show Price and Confirm -->
+            <div id="step2" style="display: none">
+                <p id="priceText"></p>
+                <button class="btn" id="confirmBtn">Confirm Ride</button>
+            </div>
+
+            <!-- Step 3: Driver Info -->
+            <div id="driverInfo" class="info-box">
+                <p><strong>Driver:</strong> Ahmed Adam</p>
+                <p><strong>Vehicle Number:</strong> GH 20-1245</p>
+                <p><strong>Contact:</strong> +233 24 8345 373</p>
+            </div>
+        </div>
+        <script src="requestride.js"></script>
+    </body>
+</html>

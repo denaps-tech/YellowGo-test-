@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Passenger Dashboard | YellowGo</title>
+
+        <style>
+            /* GLOBAL */
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                min-height: 100vh;
+                font-family: Arial, sans-serif;
+                background-image: url("bg1.png");
+                background-position: bottom bottom;
+                background-repeat: no-repeat;
+                background-size: cover;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0 10px;
+            }
+
+            /* LOGOUT BUTTON */
+            .logout {
+                margin-left: auto;
+                margin-right: auto;
+                width: 200px;
+                height: 38px;
+                font-weight: bold;
+                font-family: Georgia, serif;
+                font-size: 15px;
+                padding: 8px 16px;
+                background-color: #0d04c5; /* deep blue */
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                box-shadow: 0 0 5px #2f3024;
+            }
+
+            .logout:hover {
+                background: #0d04c8;
+                opacity: 0.9;
+            }
+
+            /* MAIN CONTAINER */
+            .container {
+                width: 100%;
+                max-width: 600px;
+                margin: 20px auto;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            /* CARD */
+            .card {
+                backgroud: none;
+                backdrop-filter: blur(10px);
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            }
+
+            #one {
+                margin-top: 150px;
+            }
+
+            .card h3 {
+                text-align: center;
+                margin-bottom: 10px;
+                color: #333; /* dark gray for text */
+            }
+
+            .card hr {
+                margin: 8px 0;
+                border: none;
+                height: 2px;
+                background-color: #ff6600; /* bright orange */
+                border-radius: 3px;
+            }
+
+            /* BUTTON */
+            .btn {
+                display: block;
+                width: 50%;
+                margin: 10px auto 0 auto;
+                padding: 12px;
+                font-size: 16px;
+                border: none;
+                border-radius: 8px;
+                background-color: #ff8501; /* vibrant orange */
+                color: white;
+                font-family: Georgia;
+                font-weight: bolder;
+                cursor: pointer;
+            }
+
+            .btn:hover {
+                background: #ff8508;
+                opacity: 0.9;
+            }
+
+            /* RIDE LIST */
+            .ride {
+                border-bottom: 1px solid #ddd;
+                padding: 10px 0;
+                color: #444; /* slightly lighter than heading */
+            }
+
+            .ride:last-child {
+                border-bottom: none;
+            }
+
+            /* RESPONSIVE */
+            @media (max-width: 480px) {
+                .logout {
+                    font-size: 14px;
+                    padding: 6px 12px;
+                }
+
+                .btn {
+                    font-size: 14px;
+                    padding: 10px;
+                }
+
+                .card {
+                    padding: 15px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- MAIN -->
+        <div class="container">
+            <!-- WELCOME CARD -->
+            <div class="card" id="one">
+                <h3>
+                    Welcome, <span id="username">Passenger</span>
+                    <hr />
+                </h3>
+                <h3 style="text-align: left">Ready for a ride?</h3>
+                <button class="btn" onclick="requestRide()">
+                    Request Ride
+                </button>
+            </div>
+
+            <!-- RIDE HISTORY CARD -->
+            <div class="card">
+                <h3>
+                    Ride History
+                    <hr />
+                </h3>
+                <div id="rides">
+                    <div class="ride">
+                        <strong>Kamina Barracks → Taxi Round</strong><br />
+                        <small>₵5 • Completed</small>
+                    </div>
+
+                    <div class="ride">
+                        <strong>Kamina Barracks → Airport</strong><br />
+                        <small>₵50• Completed</small>
+                    </div>
+
+                    <div class="ride">
+                        <strong>Kamina Barracks → Ghanasco</strong><br />
+                        <small>₵9.50 • Completed</small>
+                    </div>
+                </div>
+            </div>
+
+            <button class="logout" onclick="logout()">Logout</button>
+        </div>
+        <script src="Passengerdashboard.js"></script>
+    </body>
+</html>
